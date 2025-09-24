@@ -1,6 +1,8 @@
+import { FirstAccess } from "./Pages/FirstAccess/FirstAccess";
+
 export function App() {
   return (
-    <h1></h1>
+    <FirstAccess/>
   )
 }
 

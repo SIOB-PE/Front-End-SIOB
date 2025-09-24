@@ -1,0 +1,52 @@
+.card{
+	background-color: #EEEEEE;
+	width: 59.625rem;
+	height: 43.25rem;
+	text-align: center;
+	color: #000;
+	border-radius: 30px;
+}
+
+.title-style{
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 2.75rem;
+}
+
+.text-body{
+	font-size: 30px;
+	margin-bottom: 2.3125rem;
+}
+
+.button-first-access{
+	background-color: #000A33;
+	opacity: 90%;
+	width: 46.75rem;
+	height: 7.3125rem;
+	border: 0;
+	border-radius: 20px;
+
+	font-size: 50px;
+	font-weight: bold;
+	color: #EEEEEE;
+}
+
+.button-enter{
+	background-color: #FF0000;
+	opacity: 90%;
+	width: 46.75rem;
+	height: 7.3125rem;
+	border: 0;
+	border-radius: 20px;
+
+	font-size: 50px;
+	font-weight: bold;
+	color: #EEEEEE;
+}
+
+.button-enter:hover{
+	background-color: #A71414;
+	
+	
+}
