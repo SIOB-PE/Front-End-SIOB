@@ -1,3 +1,26 @@
+.first-access-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: inherit; /* pega o fundo que você já definiu no body */
+  overflow: hidden; /* evita scroll da logo */
+}
+
+/* Logo no fundo */
+.background-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* ajuste o tamanho da logo */
+  opacity: 0.5; /* 👈 marca d’água */
+  pointer-events: none; /* não atrapalha cliques */
+  z-index: 0; /* fica atrás */
+}
+
 .card{
 	background-color: #EEEEEE;
 	width: 59.625rem;
