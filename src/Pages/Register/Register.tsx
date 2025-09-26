@@ -1,4 +1,4 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import './Register.css';
 import logo from '../../assets/logo.svg';
 import { ArrowLeftIcon } from "@phosphor-icons/react";
@@ -17,7 +17,23 @@ export function Register() {
 				</Col>
 				<Col className="d-flex align-items-center p-0" xs={6}>
 					<Card className="card-form-style">
-
+						<Card.Body className="">
+							<Card.Title className="card-title-style">
+								Primeiro acesso SIOB-PE
+							</Card.Title>
+							<Form>
+								<Form.Group className="d-flex align-items-start justify-content-flex-directon m-5" controlId="formBasicCPF">
+									<div className="w-100">
+										<div className="d-flex align-items-start ms-1">
+											<Form.Label className="form-label-style">
+												Digite aqui seu CPF
+											</Form.Label>
+										</div>
+										<Form.Control className="form-control-style" placeholder="CPF"/>				
+									</div>
+								</Form.Group>
+							</Form>
+						</Card.Body>
 					</Card>
 				</Col>
 			</Row>

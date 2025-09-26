@@ -32,6 +32,33 @@
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	border: 0;
+	background-color: #EEEEEE;
 
 	box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-title-style{
+	margin-top: 2.375rem;
+	font-size: 40px;
+	font-weight: 600;
+	color: #190E0D;
+	opacity: 79%;
+}
+
+.form-label-style{
+	font-size: 16px;
+	color: #190E0D;
+	font-family: "Montserrat Alternates", sans-serif;
+	font-weight: 500;
+}
+
+.form-control-style{
+	background-color: rgba(99, 115, 32, 0.1);
+	box-shadow: none;
+	color: #000;
+	height: 48px;
+}
+
+.form-control-style:focus{
+	box-shadow: 0 1px 10px 2px rgba(26, 33, 61, 0.5);
 }
