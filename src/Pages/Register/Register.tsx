@@ -31,6 +31,10 @@ export function Register() {
 										</div>
 										<Form.Control className="form-control-style" placeholder="CPF" />
 									</div>
+								</Form.Group>
+								
+								<Form.Group className="form-group-style">
+
 									<div className="w-100 mt-5">
 										<div className="d-flex align-items-start ms-1">
 											<Form.Label className="form-label-style">
@@ -39,6 +43,8 @@ export function Register() {
 										</div>
 										<Form.Control className="form-control-style" placeholder="Email" />
 									</div>
+								</Form.Group>
+								<Form.Group className="form-group-style">
 									<div className="w-100 mt-5">
 										<div className="d-flex align-items-start ms-1">
 											<Form.Label className="form-label-style">
