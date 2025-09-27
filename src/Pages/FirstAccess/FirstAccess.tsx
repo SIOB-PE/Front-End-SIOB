@@ -10,16 +10,16 @@ export function FirstAccess() {
 					<p className="text-body">
 						Não acessou nenhuma vez o <b>SIOB-PE</b>? <br />
 						Faça seu <b>cadastro</b> clicando <br />
-						em <b>primeiro acesso.</b>
+						em <b>Primeiro acesso.</b>
 					</p>
 
-					<Button className="button-first-access">
+					<Button as="a" className="button-first-access" href="/Register">
 						Primeiro Acesso
 					</Button>
 
 					<p className="text-body mt-4">
 						Já fez o seu primeiro acesso?<br />
-						Clique em entrar.
+						Clique em <b>Entrar</b>.
 					</p>
 
 					<Button className="button-enter">

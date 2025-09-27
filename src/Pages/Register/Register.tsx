@@ -1,4 +1,4 @@
-import { Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import './Register.css';
 import logo from '../../assets/logo.svg';
 import { ArrowLeftIcon } from "@phosphor-icons/react";
@@ -22,17 +22,36 @@ export function Register() {
 								Primeiro acesso SIOB-PE
 							</Card.Title>
 							<Form>
-								<Form.Group className="d-flex align-items-start justify-content-flex-directon m-5" controlId="formBasicCPF">
+								<Form.Group className="form-group-style" controlId="formBasicCPF">
 									<div className="w-100">
-										<div className="d-flex align-items-start ms-1">
+										<div className="d-flex align-items-start ms-1 mt-5">
 											<Form.Label className="form-label-style">
 												Digite aqui seu CPF
 											</Form.Label>
 										</div>
-										<Form.Control className="form-control-style" placeholder="CPF"/>				
+										<Form.Control className="form-control-style" placeholder="CPF" />
+									</div>
+									<div className="w-100 mt-5">
+										<div className="d-flex align-items-start ms-1">
+											<Form.Label className="form-label-style">
+												Digite seu e-mail
+											</Form.Label>
+										</div>
+										<Form.Control className="form-control-style" placeholder="Email" />
+									</div>
+									<div className="w-100 mt-5">
+										<div className="d-flex align-items-start ms-1">
+											<Form.Label className="form-label-style">
+												Digite aqui sua data de nascimento
+											</Form.Label>
+										</div>
+										<Form.Control className="form-control-style" placeholder="DD/MM/AAAA" />
 									</div>
 								</Form.Group>
-							</Form>
+							</Form>			
+							<Button className="button-style">
+								Próximo passo
+							</Button>
 						</Card.Body>
 					</Card>
 				</Col>

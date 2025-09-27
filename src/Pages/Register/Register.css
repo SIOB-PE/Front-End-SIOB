@@ -62,3 +62,29 @@
 .form-control-style:focus{
 	box-shadow: 0 1px 10px 2px rgba(26, 33, 61, 0.5);
 }
+
+.form-group-style{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: start;
+	margin-top: 0.5rem;
+	padding-left: 3.375rem;
+	padding-right: 3.375rem;
+}
+
+
+.button-style{
+	width: 16.25rem;
+	height: 3.125rem;
+	margin-top: 5rem;
+
+	font-family: "Montserrat Alternates", sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+
+	background-color: #030B2F;
+	border: 0;
+
+	line-height: 2.5rem;
+}
