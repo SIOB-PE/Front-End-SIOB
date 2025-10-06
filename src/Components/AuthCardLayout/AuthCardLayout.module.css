@@ -1,0 +1,43 @@
+/* Estilos que pertencem ao layout dos cards */
+
+.cardImgStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 0;
+    position: relative;
+    min-height: 41.875rem;
+    background: linear-gradient(#1A213D, #030B2F);
+    box-shadow: -5px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.imgStyle {
+    width: 450px;
+}
+
+.returnStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 2.9375rem;
+    margin-left: 1.375rem;
+}
+
+.cardFormStyle {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0;
+    background-color: #EEEEEE;
+    min-height: 41.875rem;
+    box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cardTitleStyle {
+    margin-top: 2.375rem;
+    font-size: 40px;
+    font-weight: 600;
+    color: #190E0D;
+    opacity: 79%;
+}
