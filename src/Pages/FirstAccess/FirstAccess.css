@@ -9,44 +9,34 @@
   overflow: hidden; /* evita scroll da logo */
 }
 
-/* Logo no fundo */
-.background-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px; /* ajuste o tamanho da logo */
-  opacity: 0.5; /* 👈 marca d’água */
-  pointer-events: none; /* não atrapalha cliques */
-  z-index: 0; /* fica atrás */
-}
+
 
 .card{
 	background-color: #EEEEEE;
-	width: 59.625rem;
-	height: 43.25rem;
+	width: 50rem;
+	height: 32rem;
 	text-align: center;
 	color: #000;
-	border-radius: 30px;
+	border-radius: 47px;
 }
 
 .title-style{
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
   font-style: normal;
-  margin-bottom: 2.75rem;
+  margin-bottom: 0.40em;
 }
 
 .text-body{
 	font-size: 30px;
-	margin-bottom: 2.3125rem;
+	margin-bottom: 0.5rem;
 }
 
 .button-first-access{
 	background-color: #000A33;
 	opacity: 90%;
-	width: 46.75rem;
-	height: 7.3125rem;
+	width: 30rem;
+	height: 4rem;
 	border: 0;
 	border-radius: 20px;
 
@@ -55,7 +45,7 @@
 	justify-content: center;
 
 
-	font-size: 50px;
+	font-size: 36px;
 	font-weight: bold;
 	color: #EEEEEE;
 }
@@ -63,12 +53,12 @@
 .button-enter{
 	background-color: #FF0000;
 	opacity: 90%;
-	width: 46.75rem;
-	height: 7.3125rem;
+	width: 30rem;
+	height: 4rem;
 	border: 0;
 	border-radius: 20px;
 
-	font-size: 50px;
+	font-size: 36px;
 	font-weight: bold;
 	color: #EEEEEE;
 }
