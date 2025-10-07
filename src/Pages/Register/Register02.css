@@ -89,3 +89,26 @@
 	line-height: 2rem;
 	padding-left: 1rem;
 }
+
+/* InputGroup dos campos de senha */
+.input-group {
+  width: 100%;
+}
+
+/* Botão do InputGroup (👁️) */
+.input-group .btn {
+  height: 48px; /* mesma altura do input */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  border-radius: 0 10px 10px 0;
+  background-color: transparent;
+  border: none;
+  color: #030b2f;
+  cursor: pointer;
+}
+
+.input-group .btn:hover {
+  background-color: rgba(3, 11, 47, 0.1);
+}

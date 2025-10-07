@@ -2,6 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import "./Register.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   cpf: string;
@@ -10,6 +11,8 @@ type Inputs = {
 };
 
 export function Register() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -19,6 +22,7 @@ export function Register() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
+  navigate("/Register02");
   console.log(watch("cpf"));
 
   return (
@@ -26,7 +30,7 @@ export function Register() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
-            <div className="d-flex align-items-start ms-1 mt-5">
+            <div className="d-flex align-items-start ms-1 mt-1">
               <Form.Label className="form-label-style">
                 Digite aqui seu CPF
               </Form.Label>
@@ -37,7 +41,7 @@ export function Register() {
               placeholder="CPF"
             />
             {errors.cpf && (
-              <p className="m-0 text-danger">
+              <p className="m-2 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
@@ -45,7 +49,7 @@ export function Register() {
         </Form.Group>
 
         <Form.Group className="form-group-style">
-          <div className="w-100 mt-5">
+          <div className="w-100 mt-3">
             <div className="d-flex align-items-start ms-1">
               <Form.Label className="form-label-style">
                 Digite seu e-mail
@@ -57,14 +61,14 @@ export function Register() {
               placeholder="Email"
             />
             {errors.email && (
-              <p className="m-0 text-danger">
+              <p className="m-2 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
           </div>
         </Form.Group>
         <Form.Group className="form-group-style">
-          <div className="w-100 mt-5">
+          <div className="w-100 mt-3">
             <div className="d-flex align-items-start ms-1">
               <Form.Label className="form-label-style">
                 Digite aqui sua data de nascimento
@@ -76,7 +80,7 @@ export function Register() {
               className="form-control-style"
             />
             {errors.dataNascimento && (
-              <p className="m-0 text-danger">
+              <p className="m-2 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
