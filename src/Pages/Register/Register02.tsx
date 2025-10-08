@@ -1,5 +1,5 @@
 import { Button, Form, InputGroup } from "react-bootstrap";
-import "./Register.css";
+import "./Register02.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
 import { useState } from "react";
@@ -31,9 +31,13 @@ export function Register02() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* Matrícula */}
         <Form.Group className="form-group-style" controlId="formBasicMatricula">
-          <Form.Label className="form-label-style">
-            Digite aqui a sua matrícula
-          </Form.Label>
+          <div className="w-100">
+            <div className="d-flex align-items-start ms-1 mt-5">
+              <Form.Label className="form-label-style">
+                Digite aqui a sua matrícula
+              </Form.Label>
+            </div>
+          </div>
           <Form.Control
             {...register("matricula", {
               required: "A matrícula é obrigatória",
@@ -42,16 +46,22 @@ export function Register02() {
             placeholder="Matrícula"
           />
           {errors.matricula && (
-            <p className="m-2 text-danger">{errors.matricula.message}</p>
+            <p className="m-0 text-danger">{errors.matricula.message}</p>
           )}
         </Form.Group>
 
         {/* Senha */}
         <Form.Group
-          className="form-group-style mt-3"
+          className="form-group-style mt-5"
           controlId="formBasicSenha"
         >
-          <Form.Label className="form-label-style">Digite sua senha</Form.Label>
+          <div className="w-100">
+            <div className="d-flex align-items-start ms-1">
+              <Form.Label className="form-label-style">
+                Digite sua senha
+              </Form.Label>
+            </div>
+          </div>
           <InputGroup>
             <Form.Control
               type={showSenha ? "text" : "password"}
@@ -74,18 +84,22 @@ export function Register02() {
             </Button>
           </InputGroup>
           {errors.senha && (
-            <p className="m-2 text-danger">{errors.senha.message}</p>
+            <p className="m-0 text-danger">{errors.senha.message}</p>
           )}
         </Form.Group>
 
         {/* Confirmar Senha */}
         <Form.Group
-          className="form-group-style mt-3"
+          className="form-group-style mt-5"
           controlId="formConfirmarSenha"
         >
-          <Form.Label className="form-label-style">
-            Confirme sua senha
-          </Form.Label>
+          <div className="w-100">
+            <div className="d-flex align-items-start ms-1">
+              <Form.Label className="form-label-style">
+                Confirme sua senha
+              </Form.Label>
+            </div>
+          </div>
           <InputGroup>
             <Form.Control
               type={showConfirmarSenha ? "text" : "password"}
@@ -106,7 +120,7 @@ export function Register02() {
             </Button>
           </InputGroup>
           {errors.confirmarSenha && (
-            <p className="m-2 text-danger">{errors.confirmarSenha.message}</p>
+            <p className="m-0 text-danger">{errors.confirmarSenha.message}</p>
           )}
         </Form.Group>
 
@@ -114,7 +128,7 @@ export function Register02() {
         <Button
           as="input"
           type="submit"
-          className="button-style mt-4"
+          className="button-style"
           value="Cadastrar"
         />
       </Form>
