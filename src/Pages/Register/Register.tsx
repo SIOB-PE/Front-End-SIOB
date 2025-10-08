@@ -2,17 +2,13 @@ import { Button, Form } from "react-bootstrap";
 import "./Register.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
-import { useNavigate } from "react-router-dom";
 
 type Inputs = {
-  cpf: string;
-  email: string;
-  dataNascimento: string;
+  matricula: string;
+  senha: string;
 };
 
 export function Register() {
-
-  const navigate = useNavigate();
 
 
   const {
@@ -24,27 +20,26 @@ export function Register() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
-    navigate("/Register-02");
   };
 
-  console.log(watch("cpf"));
+  console.log(watch("matricula"));
 
   return (
-    <AuthCardLayout hrefReturn="/FirstAccess" title="Primeiro acesso SIOB-PE">
+    <AuthCardLayout hrefReturn="/FirstAccess" title="Bem-vindo ao SIOB-PE">
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
             <div className="d-flex align-items-start ms-1 mt-5">
               <Form.Label className="form-label-style">
-                Digite aqui seu CPF
+                Matrícula
               </Form.Label>
             </div>
             <Form.Control
-              {...register("cpf", { required: true })}
+              {...register("matricula", { required: true })}
               className="form-control-style"
-              placeholder="CPF"
+              placeholder="matrícula"
             />
-            {errors.cpf && (
+            {errors.matricula && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
@@ -56,34 +51,15 @@ export function Register() {
           <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
               <Form.Label className="form-label-style">
-                Digite seu e-mail
+                Senha
               </Form.Label>
             </div>
             <Form.Control
-              {...register("email", { required: true })}
+              {...register("senha", { required: true })}
               className="form-control-style"
-              placeholder="Email"
+              placeholder="senha"
             />
-            {errors.email && (
-              <p className="m-0 text-danger">
-                Esse campo precisa ser preenchido
-              </p>
-            )}
-          </div>
-        </Form.Group>
-        <Form.Group className="form-group-style">
-          <div className="w-100 mt-5">
-            <div className="d-flex align-items-start ms-1">
-              <Form.Label className="form-label-style">
-                Digite aqui sua data de nascimento
-              </Form.Label>
-            </div>
-            <Form.Control
-              {...register("dataNascimento", { required: true })}
-              type="date"
-              className="form-control-style"
-            />
-            {errors.dataNascimento && (
+            {errors.senha && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>

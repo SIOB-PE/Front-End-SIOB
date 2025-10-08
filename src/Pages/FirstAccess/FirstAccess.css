@@ -9,34 +9,35 @@
   overflow: hidden; /* evita scroll da logo */
 }
 
-
-
 .card{
 	background-color: #EEEEEE;
-	width: 50rem;
-	height: 32rem;
+	width: 59.625rem;
+	height: 43.25rem;
 	text-align: center;
 	color: #000;
-	border-radius: 47px;
+	border-radius: 30px;
 }
 
 .title-style{
+	font-size: 50px;
+	margin-top: 1.25rem;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: bold;
   font-style: normal;
-  margin-bottom: 0.40em;
+  margin-bottom: 2.75rem;
 }
 
 .text-body{
 	font-size: 30px;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1.75rem;
 }
 
 .button-first-access{
+	margin-top: 0.5rem;
 	background-color: #000A33;
 	opacity: 90%;
-	width: 30rem;
-	height: 4rem;
+	width: 46.75rem;
+	height: 7.3125rem;
 	border: 0;
 	border-radius: 20px;
 
@@ -45,20 +46,21 @@
 	justify-content: center;
 
 
-	font-size: 36px;
+	font-size: 50px;
 	font-weight: bold;
 	color: #EEEEEE;
 }
 
 .button-enter{
+	margin-bottom: 1rem;
 	background-color: #FF0000;
 	opacity: 90%;
-	width: 30rem;
-	height: 4rem;
+	width: 46.75rem;
+	height: 7.3125rem;
 	border: 0;
 	border-radius: 20px;
 
-	font-size: 36px;
+	font-size: 50px;
 	font-weight: bold;
 	color: #EEEEEE;
 }

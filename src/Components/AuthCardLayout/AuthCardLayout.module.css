@@ -34,8 +34,8 @@
     box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.5);
 }
 
-.cardTitleStyle {
-    margin-top: 2.375rem;
+.card-title-style {
+    margin-top: 1.5rem;
     font-size: 40px;
     font-weight: 600;
     color: #190E0D;
