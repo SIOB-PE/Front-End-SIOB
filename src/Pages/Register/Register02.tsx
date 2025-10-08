@@ -3,7 +3,7 @@ import "./Register.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
 import { useState } from "react";
-import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 
 type Inputs = {
   matricula: string;
@@ -27,28 +27,40 @@ export function Register02() {
   const senha = watch("senha");
 
   return (
-    <AuthCardLayout title="Primeiro acesso SIOB-PE">
+    <AuthCardLayout hrefReturn="/Register" title="Primeiro acesso SIOB-PE">
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* Matrícula */}
         <Form.Group className="form-group-style" controlId="formBasicMatricula">
-          <Form.Label className="form-label-style">Digite aqui a sua matrícula</Form.Label>
+          <Form.Label className="form-label-style">
+            Digite aqui a sua matrícula
+          </Form.Label>
           <Form.Control
-            {...register("matricula", { required: "A matrícula é obrigatória" })}
+            {...register("matricula", {
+              required: "A matrícula é obrigatória",
+            })}
             className="form-control-style"
             placeholder="Matrícula"
           />
-          {errors.matricula && <p className="m-2 text-danger">{errors.matricula.message}</p>}
+          {errors.matricula && (
+            <p className="m-2 text-danger">{errors.matricula.message}</p>
+          )}
         </Form.Group>
 
         {/* Senha */}
-        <Form.Group className="form-group-style mt-3" controlId="formBasicSenha">
+        <Form.Group
+          className="form-group-style mt-3"
+          controlId="formBasicSenha"
+        >
           <Form.Label className="form-label-style">Digite sua senha</Form.Label>
           <InputGroup>
             <Form.Control
               type={showSenha ? "text" : "password"}
               {...register("senha", {
                 required: "A senha é obrigatória",
-                minLength: { value: 6, message: "A senha deve ter no mínimo 6 caracteres" },
+                minLength: {
+                  value: 6,
+                  message: "A senha deve ter no mínimo 6 caracteres",
+                },
               })}
               className="form-control-style"
               placeholder="Senha"
@@ -58,21 +70,29 @@ export function Register02() {
               type="button"
               onClick={() => setShowSenha(!showSenha)}
             >
-              {showSenha ? <BsEyeSlash /> : <BsEye />}
+              {showSenha ? <EyeSlashIcon /> : <EyeIcon />}
             </Button>
           </InputGroup>
-          {errors.senha && <p className="m-2 text-danger">{errors.senha.message}</p>}
+          {errors.senha && (
+            <p className="m-2 text-danger">{errors.senha.message}</p>
+          )}
         </Form.Group>
 
         {/* Confirmar Senha */}
-        <Form.Group className="form-group-style mt-3" controlId="formConfirmarSenha">
-          <Form.Label className="form-label-style">Confirme sua senha</Form.Label>
+        <Form.Group
+          className="form-group-style mt-3"
+          controlId="formConfirmarSenha"
+        >
+          <Form.Label className="form-label-style">
+            Confirme sua senha
+          </Form.Label>
           <InputGroup>
             <Form.Control
               type={showConfirmarSenha ? "text" : "password"}
               {...register("confirmarSenha", {
                 required: "Confirme sua senha",
-                validate: (value) => value === senha || "As senhas não coincidem",
+                validate: (value) =>
+                  value === senha || "As senhas não coincidem",
               })}
               className="form-control-style"
               placeholder="Confirmar senha"
@@ -82,7 +102,7 @@ export function Register02() {
               type="button"
               onClick={() => setShowConfirmarSenha(!showConfirmarSenha)}
             >
-              {showConfirmarSenha ? <BsEyeSlash /> : <BsEye />}
+              {showConfirmarSenha ? <EyeSlashIcon /> : <EyeIcon />}
             </Button>
           </InputGroup>
           {errors.confirmarSenha && (
@@ -91,7 +111,12 @@ export function Register02() {
         </Form.Group>
 
         {/* Botão de submit */}
-        <Button as="input" type="submit" className="button-style mt-4" value="Cadastrar" />
+        <Button
+          as="input"
+          type="submit"
+          className="button-style mt-4"
+          value="Cadastrar"
+        />
       </Form>
     </AuthCardLayout>
   );
