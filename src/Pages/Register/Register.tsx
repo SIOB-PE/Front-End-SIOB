@@ -11,7 +11,9 @@ type Inputs = {
 };
 
 export function Register() {
+
   const navigate = useNavigate();
+
 
   const {
     register,
@@ -20,17 +22,19 @@ export function Register() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    navigate("/Register-02");
+  };
 
-  navigate("/Register02");
   console.log(watch("cpf"));
 
   return (
-    <AuthCardLayout title="Primeiro acesso SIOB-PE">
+    <AuthCardLayout hrefReturn="/FirstAccess" title="Primeiro acesso SIOB-PE">
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
-            <div className="d-flex align-items-start ms-1 mt-1">
+            <div className="d-flex align-items-start ms-1 mt-5">
               <Form.Label className="form-label-style">
                 Digite aqui seu CPF
               </Form.Label>
@@ -41,7 +45,7 @@ export function Register() {
               placeholder="CPF"
             />
             {errors.cpf && (
-              <p className="m-2 text-danger">
+              <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
@@ -49,7 +53,7 @@ export function Register() {
         </Form.Group>
 
         <Form.Group className="form-group-style">
-          <div className="w-100 mt-3">
+          <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
               <Form.Label className="form-label-style">
                 Digite seu e-mail
@@ -61,14 +65,14 @@ export function Register() {
               placeholder="Email"
             />
             {errors.email && (
-              <p className="m-2 text-danger">
+              <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
           </div>
         </Form.Group>
         <Form.Group className="form-group-style">
-          <div className="w-100 mt-3">
+          <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
               <Form.Label className="form-label-style">
                 Digite aqui sua data de nascimento
@@ -80,7 +84,7 @@ export function Register() {
               className="form-control-style"
             />
             {errors.dataNascimento && (
-              <p className="m-2 text-danger">
+              <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
