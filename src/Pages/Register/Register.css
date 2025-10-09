@@ -86,3 +86,22 @@
 
 	line-height: 2.5rem;
 }
+
+
+.div-checkbox{
+	display: flex;
+	align-items: start;
+	justify-content: start;
+	padding-left: 4rem;
+	padding-top: 0.5rem;
+}
+
+.checkbox-style .form-check-input {
+	background-color: #888888;
+	box-shadow: none;
+	border: none;
+}
+
+.checkbox-style .form-check-input:checked {
+	background-color: #1651DB;
+}
