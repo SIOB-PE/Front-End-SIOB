@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, FormCheck } from "react-bootstrap";
 import "./Register.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
@@ -9,8 +9,6 @@ type Inputs = {
 };
 
 export function Register() {
-
-
   const {
     register,
     handleSubmit,
@@ -26,13 +24,14 @@ export function Register() {
 
   return (
     <AuthCardLayout hrefReturn="/FirstAccess" title="Bem-vindo ao SIOB-PE">
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        className="d-flex align-itens-center justify-content-center flex-column"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
             <div className="d-flex align-items-start ms-1 mt-5">
-              <Form.Label className="form-label-style">
-                Matrícula
-              </Form.Label>
+              <Form.Label className="form-label-style">Matrícula</Form.Label>
             </div>
             <Form.Control
               {...register("matricula", { required: true })}
@@ -50,9 +49,7 @@ export function Register() {
         <Form.Group className="form-group-style">
           <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
-              <Form.Label className="form-label-style">
-                Senha
-              </Form.Label>
+              <Form.Label className="form-label-style">Senha</Form.Label>
             </div>
             <Form.Control
               {...register("senha", { required: true })}
@@ -66,12 +63,22 @@ export function Register() {
             )}
           </div>
         </Form.Group>
-        <Button
-          as="input"
-          type="submit"
-          className="button-style"
-          value={"Próximo passo"}
-        />
+        <div className="div-checkbox">
+          {['checkbox'].map( (type) => (
+            <div key={`inline-${type}`}>
+              <FormCheck className="checkbox-style" inline label="Lembre-se de mim" />
+            </div>
+          ))}
+        </div>
+        <div className="d-flex align-items-center justify-content-center flex-column mt-4">
+          <Button
+            as="input"
+            type="submit"
+            className="button-style"
+            value={"Próximo passo"}
+          />
+          <a className="mt-2 text-dark" href="/">Esqueci minha senha</a>
+        </div>
       </Form>
     </AuthCardLayout>
   );
