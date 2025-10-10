@@ -1,31 +1,28 @@
-/* Estilos que pertencem ao layout dos cards */
+.container-style{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.cardImgStyle {
+.card-img-style {
     display: flex;
     align-items: center;
     justify-content: center;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border: 0;
-    position: relative;
     min-height: 41.875rem;
     background: linear-gradient(#1A213D, #030B2F);
     box-shadow: -5px 8px 10px rgba(0, 0, 0, 0.5);
 }
 
-.imgStyle {
+.img-style {
     width: 450px;
 }
 
-.returnStyle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 2.9375rem;
-    margin-left: 1.375rem;
-}
 
-.cardFormStyle {
+.card-form-style {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border: 0;
@@ -40,4 +37,5 @@
     font-weight: 600;
     color: #190E0D;
     opacity: 79%;
+    text-align: center;
 }
