@@ -1,7 +1,8 @@
 import { Button, Form, FormCheck } from "react-bootstrap";
-import "./Register.css";
+import "./Login.css";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   matricula: string;
@@ -9,6 +10,9 @@ type Inputs = {
 };
 
 export function Register() {
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -17,13 +21,14 @@ export function Register() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    navigate('/');
     console.log(data);
   };
 
   console.log(watch("matricula"));
 
   return (
-    <AuthCardLayout hrefReturn="/FirstAccess" title="Bem-vindo ao SIOB-PE">
+    <AuthCardLayout title="Bem-vindo ao SIOB-PE" >
       <Form
         className="d-flex align-itens-center justify-content-center flex-column"
         onSubmit={handleSubmit(onSubmit)}
