@@ -1,3 +1,8 @@
+.offcanvas-start {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
 .navbar-style{
 	background-color: #fff;
 	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.35);
@@ -74,3 +79,11 @@
   transform: scaleX(1);
 }
 
+.sign-out-style{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #000000;
+	font-size: 18px;
+}

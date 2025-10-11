@@ -9,7 +9,7 @@ export function App() {
     <Routes>
       <Route path="/" element={<SplashScreen onFinish={() => window.location.replace("/Login")} />} />
       <Route path="/Login" element={<Register />} />
-      <Route path="/test" element={<CustomNavBar />} />
+      <Route path="/test" element={<CustomNavBar nameMilitary="test" />} />
       <Route path="*" element={<h1>Página Não Encontrada - Erro 404</h1>} />
     </Routes>
   )
