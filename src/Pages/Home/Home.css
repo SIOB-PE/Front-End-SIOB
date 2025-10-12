@@ -1,0 +1,49 @@
+.card-style {
+	margin-top: 3rem;
+	min-height: 9.9375rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 20px;
+}
+
+.home-button-style {
+	display: flex;
+	align-items: center;
+	margin-top: 0;
+	justify-content: center;
+	height: 4.875rem;
+
+	font-size: 24px;
+	font-weight: 500;
+
+	border: none;
+	border-radius: 8px;
+	background-color: #A71414;
+
+}
+
+.home-button-style:hover {
+	background-color: #DE1F1F;
+}
+
+.home-header-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.home-header-content h4{
+	font-size: 23px;
+	color: #190E0D;
+	opacity: 70%;
+	font-weight: 500;
+}
+.home-header-content  h2{
+	color: #000000;
+	opacity: 80%;
+	font-weight: bold;
+}
