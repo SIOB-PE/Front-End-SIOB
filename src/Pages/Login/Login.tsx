@@ -21,7 +21,7 @@ export function Register() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    navigate('/');
+    navigate('/Home');
     console.log(data);
   };
 
