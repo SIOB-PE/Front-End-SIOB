@@ -5,11 +5,13 @@ import {
   Container,
   FormControl,
   InputGroup,
+  Pagination,
   Row,
 } from "react-bootstrap";
 import { CustomNavBar } from "../../Components/CustomNavBar/CustomNavbar";
 import "./Home.css";
 import { FunnelIcon, MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react";
+import { Occurrence } from "../../Components/Occurrence/Occurrence";
 
 export function Home() {
   return (
@@ -19,7 +21,7 @@ export function Home() {
       <Container fluid>
         <Row className="d-flex justify-content-center">
           <Col md={10}>
-            <Card className="card-style">
+            <Card className="card-top-style">
               <Card.Body className="d-flex align-items-center justify-content-between w-100">
                 <Button className="ms-3 home-button-style">
                   <PlusIcon size={25} weight="bold" className="me-2" />
@@ -49,10 +51,12 @@ export function Home() {
       </Container>
 
       <Container fluid className="mt-5">
+
         <Row className="d-flex justify-content-center">
           <Col md={7}>
-            <Card>
+            <Card className="card-list-style">
               <Card.Body className="d-flex align-items-center justify-conten-center flex-column w-100">
+
                 <Row className="w-100">
                   <Col md={6}>
                     <InputGroup>
@@ -69,12 +73,41 @@ export function Home() {
                     <h3>Lista de ocorrencias</h3>
                   </Col>
                 </Row>
+
                 <hr className="w-100" />
-                <Row>
+
+                <Row className="w-100">
                   <Col md={12}>
-                    
+
+                    <ul className="occurrence-list">
+                      <li><Occurrence /></li>
+                      <li><Occurrence /></li>
+                      <li><Occurrence /></li>
+                      <li><Occurrence /></li>
+                    </ul> 
+
+                    <div className="d-flex align-items-center justify-content-center">
+                      <Pagination>
+                        <Pagination.First />
+                        <Pagination.Prev />
+                        <Pagination.Item>{1}</Pagination.Item>
+                        <Pagination.Ellipsis />
+
+                        <Pagination.Item>{10}</Pagination.Item>
+                        <Pagination.Item>{11}</Pagination.Item>
+                        <Pagination.Item active>{12}</Pagination.Item>
+                        <Pagination.Item>{13}</Pagination.Item>
+                        <Pagination.Item>{14}</Pagination.Item>
+
+                        <Pagination.Ellipsis />
+                        <Pagination.Item>{20}</Pagination.Item>
+                        <Pagination.Next />
+                        <Pagination.Last />
+                      </Pagination>
+                    </div>
                   </Col>
                 </Row>
+
               </Card.Body>
             </Card>
           </Col>
@@ -84,6 +117,8 @@ export function Home() {
             </Card>
           </Col>
         </Row>
+
+      
       </Container>
     </>
   );
