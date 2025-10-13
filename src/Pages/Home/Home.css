@@ -1,4 +1,4 @@
-.card-style {
+.card-top-style {
 	margin-top: 3rem;
 	min-height: 9.9375rem;
 
@@ -7,6 +7,10 @@
 	justify-content: center;
 
 	border-radius: 20px;
+}
+
+.card-list-style{
+	border-radius: 25px;
 }
 
 .home-button-style {
@@ -46,4 +50,10 @@
 	color: #000000;
 	opacity: 80%;
 	font-weight: bold;
+}
+
+.occurrence-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }

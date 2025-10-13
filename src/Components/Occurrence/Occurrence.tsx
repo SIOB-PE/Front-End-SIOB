@@ -10,10 +10,10 @@ export function Occurrence() {
   };
   
   return (
-    <Container fluid className="mt-5">
+    <Container fluid className="mb-3">
       <Row>
-        <Col md={5}>
-          <Card onClick={handleCardClick} className="card-occurrence">
+        <Col>
+          <Card onClick={handleCardClick} className="card-occurrence w-100">
             <Card.Body className="card-body-occurrence">
               <div className="div-card-body-occurrence">
                 <h4>Incendio Residencia</h4>
