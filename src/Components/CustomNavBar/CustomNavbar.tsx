@@ -55,7 +55,7 @@ export function CustomNavBar({ nameMilitary }: props) {
           </div>
 
           <div className="content-div-style">
-            <a href="/">
+            <a href="/Logs">
               <FileMagnifyingGlassIcon size={33} className="me-3" />
               Auditoria e Logs
             </a>
