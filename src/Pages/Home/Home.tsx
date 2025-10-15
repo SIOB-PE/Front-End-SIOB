@@ -12,6 +12,7 @@ import { CustomNavBar } from "../../Components/CustomNavBar/CustomNavbar";
 import "./Home.css";
 import { FunnelIcon, MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react";
 import { Occurrence } from "../../Components/Occurrence/Occurrence";
+import { MapContainer } from "react-leaflet";
 
 export function Home() {
   return (
@@ -60,13 +61,13 @@ export function Home() {
                 <Row className="w-100">
                   <Col md={6}>
                     <InputGroup>
-                      <InputGroup.Text>
-                        <MagnifyingGlassIcon size={24}/>
-                      </InputGroup.Text>
-                      <FormControl />
-                      <InputGroup.Text>
-                        <FunnelIcon size={24}/>
-                      </InputGroup.Text>
+                        <Button className="list-occurrence-button-style">
+                          <MagnifyingGlassIcon size={24}/>
+                        </Button>
+                      <FormControl className="list-occurrence-form-control-style" />
+                        <Button className="list-occurrence-button-style">
+                          <FunnelIcon size={24} className=""/>
+                        </Button>                        
                     </InputGroup>
                   </Col>
                   <Col md={6} className="d-flex align-items-center justify-content-center">
@@ -78,8 +79,7 @@ export function Home() {
 
                 <Row className="w-100">
                   <Col md={12}>
-
-                    <ul className="occurrence-list">
+                      <ul className="occurrence-list">
                       <li><Occurrence /></li>
                       <li><Occurrence /></li>
                       <li><Occurrence /></li>
@@ -95,7 +95,7 @@ export function Home() {
 
                         <Pagination.Item>{10}</Pagination.Item>
                         <Pagination.Item>{11}</Pagination.Item>
-                        <Pagination.Item active>{12}</Pagination.Item>
+                        <Pagination.Item>{12}</Pagination.Item>
                         <Pagination.Item>{13}</Pagination.Item>
                         <Pagination.Item>{14}</Pagination.Item>
 
@@ -113,7 +113,9 @@ export function Home() {
           </Col>
           <Col md={4}>
             <Card>
-              <Card.Body></Card.Body>
+              <Card.Body>
+                <MapContainer></MapContainer>
+              </Card.Body>
             </Card>
           </Col>
         </Row>
