@@ -10,11 +10,18 @@ import {
 } from "react-bootstrap";
 import { CustomNavBar } from "../../Components/CustomNavBar/CustomNavbar";
 import "./Home.css";
-import { FunnelIcon, MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react";
+import {
+  FunnelIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+} from "@phosphor-icons/react";
 import { Occurrence } from "../../Components/Occurrence/Occurrence";
-import { MapContainer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import type { LatLngTuple } from "leaflet";
+import "../../../node_modules/leaflet/dist/leaflet.css";
 
 export function Home() {
+  const position: LatLngTuple = [-8.05428, -34.8813];
   return (
     <>
       <CustomNavBar nameMilitary="Major Silva" />
@@ -52,25 +59,26 @@ export function Home() {
       </Container>
 
       <Container fluid className="mt-5">
-
         <Row className="d-flex justify-content-center">
           <Col md={7}>
             <Card className="card-list-style">
               <Card.Body className="d-flex align-items-center justify-conten-center flex-column w-100">
-
                 <Row className="w-100">
                   <Col md={6}>
                     <InputGroup>
-                        <Button className="list-occurrence-button-style">
-                          <MagnifyingGlassIcon size={24}/>
-                        </Button>
+                      <Button className="list-occurrence-button-style">
+                        <MagnifyingGlassIcon size={24} />
+                      </Button>
                       <FormControl className="list-occurrence-form-control-style" />
-                        <Button className="list-occurrence-button-style">
-                          <FunnelIcon size={24} className=""/>
-                        </Button>                        
+                      <Button className="list-occurrence-button-style">
+                        <FunnelIcon size={24} className="" />
+                      </Button>
                     </InputGroup>
                   </Col>
-                  <Col md={6} className="d-flex align-items-center justify-content-center">
+                  <Col
+                    md={6}
+                    className="d-flex align-items-center justify-content-center"
+                  >
                     <h3>Lista de ocorrencias</h3>
                   </Col>
                 </Row>
@@ -79,12 +87,20 @@ export function Home() {
 
                 <Row className="w-100">
                   <Col md={12}>
-                      <ul className="occurrence-list">
-                      <li><Occurrence /></li>
-                      <li><Occurrence /></li>
-                      <li><Occurrence /></li>
-                      <li><Occurrence /></li>
-                    </ul> 
+                    <ul className="occurrence-list">
+                      <li>
+                        <Occurrence />
+                      </li>
+                      <li>
+                        <Occurrence />
+                      </li>
+                      <li>
+                        <Occurrence />
+                      </li>
+                      <li>
+                        <Occurrence />
+                      </li>
+                    </ul>
 
                     <div className="d-flex align-items-center justify-content-center">
                       <Pagination>
@@ -107,20 +123,32 @@ export function Home() {
                     </div>
                   </Col>
                 </Row>
-
               </Card.Body>
             </Card>
           </Col>
           <Col md={4}>
-            <Card>
-              <Card.Body>
-                <MapContainer></MapContainer>
+            <Card className="h-100">
+              <Card.Title className="d-flex align-items-bottom justify-content-center mt-1">
+                Mapa de ocorrencias
+              </Card.Title>
+              <Card.Body className="p-1">
+                <MapContainer
+                  center={position}
+                  zoom={10}
+                  style={{ height: "100%", width: "100%" }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={position}>
+                    <Popup>Test</Popup>
+                  </Marker>
+                </MapContainer>
               </Card.Body>
             </Card>
           </Col>
         </Row>
-
-      
       </Container>
     </>
   );
