@@ -32,6 +32,9 @@
 .home-button-style:hover {
 	background-color: #DE1F1F;
 }
+.home-button-style:active {
+	background-color: #f05050 !important;
+}
 
 .home-header-content {
 	display: flex;
@@ -56,4 +59,38 @@
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+}
+
+.page-link:hover  {
+	background-color: #A71414;
+	color: #ffffff;
+}
+
+.page-link:focus  {
+	box-shadow: none;
+	border-color: #A71414;
+}
+
+.page-link:active  {
+	background-color: #f05050 !important;
+}
+
+.list-occurrence-button-style {
+	background-color: #D9D9D9;
+	color: #000000;
+	border: none;
+}
+
+.list-occurrence-button-style:hover {
+	background-color: #A71414;
+}
+
+.list-occurrence-button-style:active {
+	background-color: #f05050 !important;
+}
+
+
+.list-occurrence-form-control-style:focus {
+	box-shadow: none;
+	border-color: #A71414;
 }
