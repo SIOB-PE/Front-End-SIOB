@@ -1,16 +1,16 @@
-import { Button, Form, FormCheck } from "react-bootstrap";
-import "./Login.css";
+import "./RegisterUser.css";
+import { Button, Form } from "react-bootstrap";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
 import { useNavigate } from "react-router-dom";
 
 type Inputs = {
+  cpf: string;
+  email: string;
   matricula: string;
-  senha: string;
 };
 
-export function Register() {
-
+export function RegisterUser() {
   const navigate = useNavigate();
 
   const {
@@ -21,13 +21,12 @@ export function Register() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = () => {
-    navigate('/Home');
+    navigate("02");
   };
 
   watch();
-
   return (
-    <AuthCardLayout title="Bem-vindo ao SIOB-PE" >
+    <AuthCardLayout title="Cadastro de usuário">
       <Form
         className="d-flex align-itens-center justify-content-center flex-column"
         onSubmit={handleSubmit(onSubmit)}
@@ -35,14 +34,14 @@ export function Register() {
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
             <div className="d-flex align-items-start ms-1 mt-5">
-              <Form.Label className="form-label-style">Matrícula</Form.Label>
+              <Form.Label className="form-label-style">Digite o CPF do militar</Form.Label>
             </div>
             <Form.Control
-              {...register("matricula", { required: true })}
+              {...register("cpf", { required: true })}
               className="form-control-style"
-              placeholder="matrícula"
+              placeholder="CPF"
             />
-            {errors.matricula && (
+            {errors.cpf && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
@@ -53,35 +52,46 @@ export function Register() {
         <Form.Group className="form-group-style">
           <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
-              <Form.Label className="form-label-style">Senha</Form.Label>
+              <Form.Label className="form-label-style">Email</Form.Label>
             </div>
             <Form.Control
-              {...register("senha", { required: true })}
+              {...register("email", { required: true })}
               className="form-control-style"
-              placeholder="senha"
+              placeholder="Email"
             />
-            {errors.senha && (
+            {errors.email && (
+              <p className="m-0 text-danger">
+                Esse campo precisa ser preenchido
+              </p>
+            )}
+          </div>
+
+        </Form.Group>
+		        <Form.Group className="form-group-style">
+          <div className="w-100 mt-5">
+            <div className="d-flex align-items-start ms-1">
+              <Form.Label className="form-label-style">Matrícula</Form.Label>
+            </div>
+            <Form.Control
+              {...register("matricula", { required: true })}
+              className="form-control-style"
+              placeholder="Matrícula"
+            />
+            {errors.matricula && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
           </div>
         </Form.Group>
-        <div className="div-checkbox">
-          {['checkbox'].map( (type) => (
-            <div key={`inline-${type}`}>
-              <FormCheck className="checkbox-style" inline label="Lembre-se de mim" />
-            </div>
-          ))}
-        </div>
-        <div className="d-flex align-items-center justify-content-center flex-column mt-4">
+
+        <div className="d-flex align-items-center justify-content-center flex-column">
           <Button
             as="input"
             type="submit"
-            className="button-style"
-            value={"Entrar"}
+            className="register-user-next-style mt-5"
+            value={"Próximo passo"}
           />
-          <a className="mt-2 text-dark" href="/">Esqueci minha senha</a>
         </div>
       </Form>
     </AuthCardLayout>
