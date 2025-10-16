@@ -6,6 +6,7 @@ import {
   FileMagnifyingGlassIcon,
   FileTextIcon,
   GearSixIcon,
+  HouseIcon,
   ListIcon,
   PencilSimpleIcon,
   SignOutIcon,
@@ -41,6 +42,13 @@ export function CustomNavBar({ nameMilitary }: props) {
 
         <Offcanvas.Body className="d-flex align-items-start flex-column w-100">
           <div className="content-div-style">
+            <a href="/Home">
+              <HouseIcon size={33} className="me-3" />
+              Início
+            </a>
+          </div>
+
+          <div className="content-div-style">
             <a href="/">
               <FileTextIcon size={33} className="me-3" />
               Relatórios e expotação
@@ -48,7 +56,7 @@ export function CustomNavBar({ nameMilitary }: props) {
           </div>
 
           <div className="content-div-style">
-            <a href="/">
+            <a href="/UserManagement">
               <UsersThreeIcon size={33} className="me-3" />
               Gestão de usuários
             </a>
@@ -83,7 +91,7 @@ export function CustomNavBar({ nameMilitary }: props) {
           </div>
           
         <div className="d-flex align-items-center justify-content-center w-100 mt-3">
-          <a href="" className="sign-out-style">
+          <a href="/" className="sign-out-style">
             Sair
             <SignOutIcon className="ms-2" size={20} weight="bold"/>
           </a>

@@ -1,16 +1,15 @@
-import { Button, Form, FormCheck } from "react-bootstrap";
-import "./Login.css";
+import './RegisterUser02.css';
+import { Button, Form } from "react-bootstrap";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
 import { useNavigate } from "react-router-dom";
 
 type Inputs = {
-  matricula: string;
-  senha: string;
+  senha1: string;
+  senha2: string;
 };
 
-export function Register() {
-
+export function RegisterUser02() {
   const navigate = useNavigate();
 
   const {
@@ -21,13 +20,12 @@ export function Register() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = () => {
-    navigate('/Home');
+    navigate("/Home");
   };
 
-  watch();
-
+  watch("senha1");
   return (
-    <AuthCardLayout title="Bem-vindo ao SIOB-PE" >
+    <AuthCardLayout title="Cadastro de usuário">
       <Form
         className="d-flex align-itens-center justify-content-center flex-column"
         onSubmit={handleSubmit(onSubmit)}
@@ -35,14 +33,14 @@ export function Register() {
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
             <div className="d-flex align-items-start ms-1 mt-5">
-              <Form.Label className="form-label-style">Matrícula</Form.Label>
+              <Form.Label className="form-label-style">Digite a senha</Form.Label>
             </div>
             <Form.Control
-              {...register("matricula", { required: true })}
+              {...register("senha1", { required: true })}
               className="form-control-style"
-              placeholder="matrícula"
+              placeholder="Senha"
             />
-            {errors.matricula && (
+            {errors.senha1 && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
@@ -53,35 +51,30 @@ export function Register() {
         <Form.Group className="form-group-style">
           <div className="w-100 mt-5">
             <div className="d-flex align-items-start ms-1">
-              <Form.Label className="form-label-style">Senha</Form.Label>
+              <Form.Label className="form-label-style">Confirme a senha</Form.Label>
             </div>
             <Form.Control
-              {...register("senha", { required: true })}
+              {...register("senha2", { required: true })}
               className="form-control-style"
-              placeholder="senha"
+              placeholder="Confirme a senha"
             />
-            {errors.senha && (
+            {errors.senha2 && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
             )}
           </div>
+
         </Form.Group>
-        <div className="div-checkbox">
-          {['checkbox'].map( (type) => (
-            <div key={`inline-${type}`}>
-              <FormCheck className="checkbox-style" inline label="Lembre-se de mim" />
-            </div>
-          ))}
-        </div>
-        <div className="d-flex align-items-center justify-content-center flex-column mt-4">
+
+
+        <div className="d-flex align-items-center justify-content-center flex-column mt-5">
           <Button
             as="input"
             type="submit"
-            className="button-style"
-            value={"Entrar"}
+            className="register-user-register-new-user-style mt-5"
+            value={"Cadastrar usuário"}
           />
-          <a className="mt-2 text-dark" href="/">Esqueci minha senha</a>
         </div>
       </Form>
     </AuthCardLayout>
