@@ -5,7 +5,7 @@ import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
 import { useNavigate } from "react-router-dom";
 
 type Inputs = {
-  cpf: string;
+  nome: string;
   email: string;
   matricula: string;
 };
@@ -20,8 +20,8 @@ export function RegisterUser() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = () => {
-    navigate("02");
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    navigate("02", {state: data});
   };
 
   watch();
@@ -34,14 +34,14 @@ export function RegisterUser() {
         <Form.Group className="form-group-style" controlId="formBasicCPF">
           <div className="w-100">
             <div className="d-flex align-items-start ms-1 mt-5">
-              <Form.Label className="form-label-style">Digite o CPF do militar</Form.Label>
+              <Form.Label className="form-label-style">Digite o nome do militar</Form.Label>
             </div>
             <Form.Control
-              {...register("cpf", { required: true })}
+              {...register("nome", { required: true })}
               className="form-control-style"
-              placeholder="CPF"
+              placeholder="Nome"
             />
-            {errors.cpf && (
+            {errors.nome && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>

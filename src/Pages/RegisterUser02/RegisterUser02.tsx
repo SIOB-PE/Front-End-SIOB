@@ -2,15 +2,18 @@ import './RegisterUser02.css';
 import { Button, Form } from "react-bootstrap";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { AuthCardLayout } from "../../Components/AuthCardLayout/AuthCardLayout";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type Inputs = {
-  senha1: string;
+  senha: string;
   senha2: string;
 };
 
 export function RegisterUser02() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const step1Data = location.state;
 
   const {
     register,
@@ -19,11 +22,34 @@ export function RegisterUser02() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = () => {
-    navigate("/Home");
+  const onSubmit: SubmitHandler<Inputs> = async (step2Data) => {
+    const finalData = {...step1Data, ...step2Data};
+
+    delete finalData.senha2;
+
+    try{
+      const response = await fetch('http://localhost:8080/usuario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(finalData),
+      });
+
+      if(!response.ok){
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Falha ao cadastrar usuário.');
+      }
+
+      navigate("/Home");
+      
+    } catch (error){
+      console.error("Erro na api: ", error)
+    }
+
   };
 
-  watch("senha1");
+  watch("senha");
   return (
     <AuthCardLayout title="Cadastro de usuário">
       <Form
@@ -36,11 +62,11 @@ export function RegisterUser02() {
               <Form.Label className="form-label-style">Digite a senha</Form.Label>
             </div>
             <Form.Control
-              {...register("senha1", { required: true })}
+              {...register("senha", { required: true })}
               className="form-control-style"
               placeholder="Senha"
             />
-            {errors.senha1 && (
+            {errors.senha && (
               <p className="m-0 text-danger">
                 Esse campo precisa ser preenchido
               </p>
