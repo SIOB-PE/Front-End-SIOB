@@ -5,6 +5,7 @@ import {
   Container,
   FormControl,
   InputGroup,
+  Modal,
   Row,
 } from "react-bootstrap";
 import { CustomNavBar } from "../../Components/CustomNavBar/CustomNavbar";
@@ -16,8 +17,6 @@ import {
   UserCircleMinusIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-
-
 
 interface Usuario {
   id: string;
@@ -32,6 +31,10 @@ interface Usuario {
 export function UserManagement() {
   const [searchNome, setSearchNome] = useState("");
   const [users, setUsers] = useState<Usuario[]>([]);
+  const [userToDelete, setUserToDelete] = useState<Usuario | null>(null);
+
+  const handleClose = () => setUserToDelete(null);
+  const handleShow = (user: Usuario) => setUserToDelete(user);
 
   const fetchUsers = async () => {
     try {
@@ -55,7 +58,7 @@ export function UserManagement() {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/usuario?nome=${searchNome}`
+        `http://localhost:8080/usuario/${searchNome}`
       );
 
       if (!response.ok) {
@@ -66,6 +69,25 @@ export function UserManagement() {
       setUsers(data);
     } catch (error) {
       console.error("Erro ao pesquisar usuários:", error);
+    }
+  };
+
+  const handleDelete = async (matricula: string) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/usuario/${matricula}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`Erro HTTP! Status: ${response.status}`);
+      }
+
+      await fetchUsers();
+
+    } catch (error) {
+      console.error("Erro ao deletar usuário: ", error);
     }
   };
 
@@ -155,7 +177,12 @@ export function UserManagement() {
                           <Button className="user-management-edit-button-style me-4">
                             <PencilSimpleIcon size={30} />
                           </Button>
-                          <Button className="user-management-delete-button-style">
+                          <Button
+                            className="user-management-delete-button-style"
+                            onClick={() => {
+                              handleShow(user);
+                            }}
+                          >
                             <UserCircleMinusIcon size={30} />
                           </Button>
                         </Col>
@@ -172,6 +199,27 @@ export function UserManagement() {
             </Card>
           </Col>
         </Row>
+        <Modal show={userToDelete !== null} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Deletar usuário</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Tem certeza que quer deletar o perfil de <b>{userToDelete?.nome}</b>?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancelar
+            </Button>
+            <Button variant="danger" onClick={async () => {
+              if (userToDelete){
+                await handleDelete(userToDelete.matricula);
+              }
+              handleClose();
+            }}>
+              Deletar
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Container>
     </>
   );
