@@ -128,7 +128,7 @@ export function Home() {
           </Col>
           <Col md={4}>
             <Card className="h-100">
-              <Card.Title className="d-flex align-items-bottom justify-content-center mt-1">
+              <Card.Title className="d-flex align-items-bottom justify-content-center mt-2">
                 Mapa de ocorrencias
               </Card.Title>
               <Card.Body className="p-1">

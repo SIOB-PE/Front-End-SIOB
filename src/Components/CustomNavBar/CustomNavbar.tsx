@@ -51,7 +51,7 @@ export function CustomNavBar({ nameMilitary }: props) {
           <div className="content-div-style">
             <a href="/">
               <FileTextIcon size={33} className="me-3" />
-              Relatórios e expotação
+              Relatórios e exportação
             </a>
           </div>
 
