@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import SplashScreen from "./Pages/SplashScreen/SplashScreen";
-import { Register } from "./Pages/Login/Login";
+import { Login } from "./Pages/Login/Login";
 import { Home } from "./Pages/Home/Home";
 import { LogsPage } from "./Pages/LogsPage/LogsPage";
 import { UserManagement } from "./Pages/UserManagement/UserManagement";
@@ -11,9 +11,9 @@ import { RegisterUser02 } from "./Pages/RegisterUser02/RegisterUser02";
 
 export function App() {
   return (
-    <Routes>
+    <Routes>ó
       <Route path="/" element={<SplashScreen onFinish={() => window.location.replace("/Login")} />} />
-      <Route path="/Login" element={<Register />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/Logs" element={<LogsPage />} />
       <Route path="/UserManagement" element={<UserManagement />} />

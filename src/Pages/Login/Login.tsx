@@ -9,7 +9,7 @@ type Inputs = {
   senha: string;
 };
 
-export function Register() {
+export function Login() {
 
   const navigate = useNavigate();
 
@@ -20,9 +20,25 @@ export function Register() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = () => {
-    navigate('/Home');
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+
+
+    try {
+      const response = await fetch(`http://localhost:8080/usuario?matricula=${data.matricula}&senha=${data.senha}`);
+
+      if (response.ok){
+        console.log("Login realizado com sucesso!");
+        navigate('/Home', {state: data.matricula});
+      } else {
+          console.error("Falha no login: ", response.status);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
   };
+
+
 
   watch();
 
